@@ -77,7 +77,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<li class="nav-item">
 							<a href="<?php echo base_url("Meteran/index");?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Materan </p>
+								<p>Master Meteran </p>
 							</a>
 						</li>
 					</ul>

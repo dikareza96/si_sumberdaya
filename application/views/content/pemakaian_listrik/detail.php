@@ -59,12 +59,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </div>
             </div>
 
-          <form role="form" method="POST" enctype="multipart/form-data" action="<?php echo base_url("pemakaian_listrik/update");?>">
+         
             <div class="card-body">
                <?php foreach ($pemakaian_listrik as $row) {
             ?>
              <input id="id" name="id" required="required" type="hidden" value="<?php echo $row->id_listrik; ?>">
-              <div class="row">
+             <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="inputName">ID pelanggan</label>
@@ -72,65 +72,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </div>
                   <div class="form-group">
                     <label for="inputDescription">Tahun</label>
-                    <input id="tahun" class="form-control" name="tahun" type="number" placeholder="contoh: 2023" value="<?php echo $row->tahun; ?>" disabled>
+                    <input id="tahun" class="form-control" name="tahun" type="number" placeholder="contoh: 2023" value="<?php echo $row->tahun; ?>" disabled> 
                   </div>
 
-                   <div class="form-group">
-                    <label for="inputName">Januari</label>
-                    <input type="text" id="januari" name="januari" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->januari; ?>" disabled>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputName">Februari</label>
-                    <input type="text" id="februari" name="februari" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->februari; ?>" disabled>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputName">Maret</label>
-                    <input type="text" id="maret" name="maret" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->maret; ?>" disabled>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputName">April</label>
-                    <input type="text" id="april" name="april" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->april; ?>" disabled>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputName">Mei</label>
-                    <input type="text" id="mei" name="mei"class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->mei; ?>" disabled>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputName">Juni</label>
-                    <input type="text" id="juni" name="juni" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->juni; ?>" disabled>
-                  </div>
 
                 </div>
 
                 <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="inputName">Juli</label>
-                    <input type="text" id="juli" name="juli" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->juli; ?>" disabled>
+                   <div class="form-group">
+                    <label for="inputName">Bulan</label>
+                    <!-- <input type="text" id="bulan" name="bulan" class="form-control" placeholder="contoh: Januari" > -->
+                   
+                      <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%;" id="bulan" name="bulan" disabled>
+                        <?php foreach($bulan as $row1){?>
+                        <option value="<?php echo $row1->id_bulan?>" <?php echo ($row->bulan == $row1->bulan ? 'selected' : ''); ?>><?php echo $row1->bulan?></option>
+                      <?php }?>
+                     
+                      </select>
                   </div>
-                  <div class="form-group">
-                    <label for="inputName">Agustus</label>
-                    <input type="text" id="agustus" name="agustus" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->agustus; ?>" disabled>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName">September</label>
-                    <input type="text" id="september" name="september" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->september; ?>" disabled>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName">Oktober</label>
-                    <input type="text" id="oktober" name="oktober" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->oktober; ?>" disabled>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName">November</label>
-                    <input type="text" id="november" name="november" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->november; ?>" disabled>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName">Desember</label>
-                    <input type="text" id="desember" name="desember" class="form-control" placeholder="contoh: 12000000" value="<?php echo $row->desember; ?>" disabled>
+
+                   <div class="form-group">
+                    <label for="inputName">Tagihan</label>
+                    <input type="text" id="tagihan" name="tagihan" class="form-control" value="<?php echo $row->tagihan; ?>"  placeholder="1200000" disabled>
                   </div>
 
 

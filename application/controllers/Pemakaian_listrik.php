@@ -119,6 +119,7 @@ GROUP BY pl.created_at DESC
 				$where = array('id_listrik' => $id);
 
 				$data['pemakaian_listrik'] = $this->Resource->edit($where,'Pemakaian_listrik')->result();
+				$data['bulan'] = $this->db->query("SELECT * FROM bulan")->result();
 				
 				
 				$this->load->view('content/Pemakaian_listrik/detail', $data);
