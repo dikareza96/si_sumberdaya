@@ -141,6 +141,26 @@ class Dashboard extends CI_Controller
 		// }
 	}
 
+	public function fetch_data_meteran_5(){
+		// if($this->input->post('year'))
+		// {
+			// $chart_data = $this->Resource->fetch_chart_data($this->input->post('year'));
+			$chart_data = $this->Resource->fetch_chart_data_meteran_5('2022');
+
+			foreach($chart_data->result_array() as $row)
+			{
+				$output[] = array(
+					'bulan'  => $row["bulan"],
+					'tagihan' =>  floatval($row["tagihan"])
+				);
+			}
+			$json =  json_encode($output);
+			 $this->output
+            ->set_content_type('application/json')
+            ->set_output($json);
+		// }
+	}
+
 	
 
 
