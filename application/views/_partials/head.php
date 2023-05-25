@@ -6,7 +6,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- <title><?= $this->config->item('site_name') ?></title> -->
-<title>EnergyMonitor</title>
+<title>SIMASDA</title>
 
 
 <link rel="stylesheet" href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css') ?>">

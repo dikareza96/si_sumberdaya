@@ -6,7 +6,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<a href="<?php echo base_url("dashboard/index");?>" class="brand-link">
 		<img src="<?= site_url('assets/img/logo-icon-2.jpg') ?>" alt="<?= $this->config->item('site_name') ?>" class="brand-image img-circle elevation-3" style="opacity: .8">
 		<!-- <span class="brand-text font-weight-light"><?= $this->config->item('site_name') ?></span> -->
-		<span class="brand-text font-weight-light">EnergyMonitor</span>
+		<span class="brand-text font-weight-light">SIMASDA</span>
 	</a>
 
 	<!-- Sidebar -->
