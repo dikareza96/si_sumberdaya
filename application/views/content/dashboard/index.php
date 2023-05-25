@@ -195,7 +195,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="ctx_total" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_total" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
@@ -218,7 +218,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="ctx_1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_1" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
@@ -244,7 +244,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="ctx_2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_2" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
@@ -267,7 +267,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="ctx_3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_3" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
@@ -290,7 +290,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="ctx_4" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_4" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
@@ -313,7 +313,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="ctx_5" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_5" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
