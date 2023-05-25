@@ -57,7 +57,19 @@ class Resource extends CI_Model{
     	return $this->db->get('pemakaian_listrik');
     }
 
-    function fetch_chart_data_meteran_2($year)
+    function fetch_chart_data_meteran_1($year)
+    {
+    	$this->db->select('bulan');
+    	$this->db->select('SUM(tagihan) AS tagihan');
+    	$this->db->where('tahun', $year);
+    	$this->db->where('delete_status','0');
+    	$this->db->where('id_pelanggan', '1');
+    	$this->db->group_by('bulan');
+    	$this->db->order_by('bulan');
+
+    	return $this->db->get('pemakaian_listrik');
+    }
+	function fetch_chart_data_meteran_2($year)
     {
     	$this->db->select('bulan');
     	$this->db->select('SUM(tagihan) AS tagihan');
