@@ -251,7 +251,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </div>
                   <!-- /.card -->
 
-                  <!-- BAR CHART 2 -->
+                  <!-- BAR CHART 3 -->
                  <div class="card card-success">
                               <div class="card-header">
                                 <h3 class="card-title">Total tagihan meteran 3</h3>
@@ -274,23 +274,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </div>
                   <!-- /.card -->
 
-                  <!-- BAR CHART -->
-                           <div class="card card-success">
+                 <!-- BAR CHART 4 -->
+                 <div class="card card-success">
                               <div class="card-header">
-                                <h3 class="card-title">Total ID PELANGGAN 5 (514010438935)</h3>
+                                <h3 class="card-title">Total tagihan meteran 4</h3>
 
                                 <div class="card-tools">
                                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
                                 </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <!-- <button type="button" class="btn btn-tool" data-card-widget="remove">
                                     <i class="fas fa-times"></i>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                              <canvas id="barChart5" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              <canvas id="ctx_4" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                           </div>
                       </div>
                       <!-- /.card-body -->
@@ -1195,7 +1195,7 @@ var totalData = {
        // if(total_kejadian == 0)canvasblockUi('#panel-satu');
      }, "json");
 
-     // fetch data from meteran 2
+     // fetch data from meteran 3
      $.post( "<?= $this->config->item('base_url'); ?>Dashboard/fetch_data_meteran_3", function( data ) {
        
        var labels = [];
@@ -1266,6 +1266,114 @@ var totalData = {
 
  // setting
  var canvas_test = $('#ctx_3').get(0).getContext('2d');
+ var barChartData = $.extend(true, {}, total_test);
+
+ // setting option
+ var barChartOptions = {
+   responsive              : true,
+   maintainAspectRatio     : false,
+   datasetFill             : false,
+
+   scales: {
+                 xAxes: [{
+                     stacked: false,
+                     scaleLabel:{
+                         display:true,
+                         labelString:"Bulan"
+                     }
+                 }],
+                 yAxes: [{
+                     stacked: false,
+                     scaleLabel:{
+                         display:true,
+                         labelString:"Tagihan (Rp)"
+                     }
+                 }]
+             }
+ }
+ 
+ //initialization
+       new Chart(canvas_test, {
+         type: 'bar',
+         data: barChartData,
+          plugins: [ChartDataLabels],
+         options: barChartOptions
+       });
+       // blockUI(false,'#panel-bulan');
+       // if(total_kejadian == 0)canvasblockUi('#panel-satu');
+     }, "json");
+
+     // fetch data from meteran 4
+     $.post( "<?= $this->config->item('base_url'); ?>Dashboard/fetch_data_meteran_4", function( data ) {
+       
+       var labels = [];
+       var jumlah    = [];
+       var nama_bulan    = [];
+   
+       $.each( data, function( key, value ) {
+         nama_bulan.push([value.bulan]);
+         jumlah.push(value.tagihan);
+       });
+        
+       var total_test = {
+     labels  :nama_bulan,
+     datasets: [
+     {
+         label               : '2022',
+         backgroundColor     : 'rgba(54, 162, 235, 0.2)',
+         borderColor         : 'rgb(54, 162, 235)',
+          borderWidth: 1,
+         pointRadius          : false,
+         pointColor          : '#3b8bba',
+         pointStrokeColor    : 'rgba(60,141,188,1)',
+         pointHighlightFill  : '#fff',
+         pointHighlightStroke: 'rgba(60,141,188,1)',
+         data                : jumlah,
+         datalabels          :{
+          backgroundColor: function(context) {
+       return context.hovered ? context.dataset.borderColor : 'white';
+     },
+     borderColor: function(context) {
+       return context.dataset.borderColor;
+     },
+          
+           anchor:'end',
+           align: 'end',
+          borderRadius: 16,
+            borderWidth: 1,
+     color: function(context) {
+       return context.hovered ? 'white' : context.dataset.borderColor;
+     },
+           offset: 8,
+     formatter: Math.round,
+     listeners: {
+       enter: function(context) {
+         context.hovered = true;
+         return true;
+       },
+       leave: function(context) {
+         context.hovered = false;
+         return true;
+       }
+     },
+           labels: {
+             title: {
+               font: function(context) {
+       var w = context.chart.width;
+       return {
+         size: w < 512 ? 11 : 13,
+         weight: 'bold',
+       };
+     },
+             }
+           }
+         }//datalabels
+     }
+    ]
+ };
+
+ // setting
+ var canvas_test = $('#ctx_4').get(0).getContext('2d');
  var barChartData = $.extend(true, {}, total_test);
 
  // setting option
