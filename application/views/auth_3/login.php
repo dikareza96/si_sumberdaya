@@ -1,34 +1,3 @@
-<?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
-
-<div id="infoMessage"><?php echo $message;?></div>
-
-<?php echo form_open("auth/login");?>
-
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?> 
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
-
-<!-- admin lte 3 -->
-
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
@@ -52,11 +21,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     silahkan login untuk melanjutkan
                 </p>
 
-                <div id="infoMessage"><?php echo $message;?></div>
-
                 <form action="<?= base_url('auth/login') ?>" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="identity" placeholder="Username" autofocus autocomplete="username">
+                        <input type="text" class="form-control" name="username" placeholder="Username" autofocus autocomplete="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -73,36 +40,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
+                            <!-- <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
                                     Remember Me
                                 </label>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                         <!-- /.col -->
-                       
-                            
-                       
-
-                        
                     </div>
                 </form>
-                <div class="social-auth-links text-center mb-3">
-                            <p>- OR -</p>
-                            
-                        </div>
-
-                            <p class="mb-1">
-                            <a href="forgot-password.html">I forgot my password</a>
-                            </p>
-                            <p class="mb-0">
-                            <a href="register.html" class="text-center">Register a new membership</a>
-                            </p>
             </div>
             <!-- /.login-card-body -->
         </div>
