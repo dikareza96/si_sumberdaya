@@ -11,13 +11,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <?= $this->config->item('site_name') ?>
+           <!--  <?= $this->config->item('site_name') ?> -->
+           Sistem Informasi Manajemen Sumberdaya
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">
-                    Selamat datang, <br>
+                    Selamat datang, asd<br>
                     silahkan login untuk melanjutkan
                 </p>
 

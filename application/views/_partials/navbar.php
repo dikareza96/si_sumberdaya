@@ -28,9 +28,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	</form>
 
 	<!-- Right navbar links -->
-	<ul class="navbar-nav ml-auto" style="display: ">
+	<ul class="navbar-nav ml-auto">
 		<!-- Messages Dropdown Menu -->
-		<li class="nav-item dropdown">
+		<li class="nav-item dropdown" style="display: none">
 			<a class="nav-link" data-toggle="dropdown" href="#">
 				<i class="far fa-comments"></i>
 				<span class="badge badge-danger navbar-badge">3</span>
@@ -88,7 +88,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</div>
 		</li>
 		<!-- Notifications Dropdown Menu -->
-		<li class="nav-item dropdown">
+		<li class="nav-item dropdown" style="display: none">
 			<a class="nav-link" data-toggle="dropdown" href="#">
 				<i class="far fa-bell"></i>
 				<span class="badge badge-warning navbar-badge">15</span>
@@ -115,57 +115,57 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</div>
 		</li>
 		
-		<li class="nav-item">
+		<li class="nav-item" style="display: none">
 			<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
 				<i class="fas fa-th-large"></i>
 			</a>
 		</li>
+
 		<li class="nav-item dropdown user-menu">
-<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-<img src="../../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-<span class="d-none d-md-inline">Alexander Pierce</span>
-</a>
-<ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+			
+			<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+				<img src="<?= site_url('assets/img/dist/img/avatar5.png') ?>" class="user-image img-circle elevation-2" alt="User Image">
+				<span class="d-none d-md-inline"><?php   
+							echo $user->first_name;
+						   ?></span>
+			</a>
+			<ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-<li class="user-header bg-primary">
-<img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-<p>
-Alexander Pierce - Web Developer
-<small>Member since Nov. 2012</small>
-</p>
-</li>
+				<li class="user-header bg-primary">
 
-<li class="user-body">
-	<div class="row">
-		<div class="col-4 text-center">
-			<a href="#">Followers</a>
-		</div>
-		<div class="col-4 text-center">
-			<a href="#">Sales</a>
-		</div>
-		<div class="col-4 text-center">
-			<a href="#">Friends</a>
-		</div>
-	</div>
+					<img src="<?= site_url('assets/img/dist/img/avatar5.png') ?>" class="img-circle elevation-2" alt="User Image">
+					<p>
+						<?php   
+							echo $user->first_name;
+						   ?>
+						<!-- <small>Member since Nov. 2012</small> -->
+					</p>
+				</li>
 
-</li>
+				<li class="user-body" style="display: none">
+					<div class="row">
+						<div class="col-4 text-center">
+							<a href="#">Followers</a>
+						</div>
+						<div class="col-4 text-center">
+							<a href="#">Sales</a>
+						</div>
+						<div class="col-4 text-center">
+							<a href="#">Friends</a>
+						</div>
+					</div>
 
-<li class="user-footer">
-	<a href="#" class="btn btn-default btn-flat">Profile</a>
-	<a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
-</li>
-</ul>
-</li>
+				</li>
 
-
-
-
-
-
-
-
-
-
+				<li class="user-footer">
+					<a href="#" class="btn btn-default btn-flat" style="display: none">Profile</a>
+					
+					<a href="<?= base_url('auth/logout') ?>" class="btn btn-default btn-flat float-right">Log out</a>
+					
+				</li>
+			</ul>
+		
+		</li>
 		<!-- end -->
 	</ul>
 </nav>

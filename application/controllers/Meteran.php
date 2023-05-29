@@ -7,7 +7,7 @@ function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url','file', 'text'));
-		$this->load->library('form_validation');
+		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->model('Resource');
 		date_default_timezone_set('Asia/Jakarta');
 		
@@ -19,7 +19,7 @@ function __construct()
 
 	public function index()
 	{	
-
+		$data['user'] = $this->ion_auth->user()->row();
 		$data['meteran'] = $this->db->query("
 				SELECT *
 				FROM id_pelanggan
@@ -29,7 +29,8 @@ function __construct()
 	}
 	public function create()
 	{
-		$this->load->view('content/Meteran/add');
+		$data['user'] = $this->ion_auth->user()->row();
+		$this->load->view('content/Meteran/add',$data);
 	}
 
 	public function store()
@@ -70,6 +71,7 @@ function __construct()
 	public function edit($id)
 			{	
 				$where = array('id_meteran' => $id);
+				$data['user'] = $this->ion_auth->user()->row();
 
 				$data['meteran'] = $this->Resource->edit($where,'id_pelanggan')->result();
 				
@@ -80,6 +82,7 @@ function __construct()
 	public function detail($id)
 	{	
 				$where = array('id_meteran' => $id);
+				$data['user'] = $this->ion_auth->user()->row();
 
 				$data['meteran'] = $this->Resource->edit($where,'id_pelanggan')->result();
 				

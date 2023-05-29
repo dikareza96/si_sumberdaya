@@ -8,11 +8,13 @@ class Dashboard extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Resource');
+		$this->load->library(['ion_auth', 'form_validation']);
 	}
 
 	public function index()
 	{
-		
+		$data['user'] = $this->ion_auth->user()->row();
+						   				 
 		$data['tahun'] = $this->db->query('SELECT tahun FROM pemakaian_listrik
 			GROUP BY tahun	
 			order by tahun DESC')->result();

@@ -7,7 +7,7 @@ function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url','file', 'text'));
-		$this->load->library('form_validation');
+		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->model('Resource');
 		date_default_timezone_set('Asia/Jakarta');
 		
@@ -19,6 +19,7 @@ function __construct()
 
 	public function index()
 	{	
+		$data['user'] = $this->ion_auth->user()->row();
 
 		$data['pemakaian_listrik'] = $this->db->query("
 				SELECT pl.*, ip.*
@@ -107,6 +108,7 @@ GROUP BY pl.created_at DESC
 	}
 	public function edit($id)
 			{	
+				$data['user'] = $this->ion_auth->user()->row();
 				$where = array('id_listrik' => $id);
 
 				$data['pemakaian_listrik'] = $this->Resource->edit($where,'Pemakaian_listrik')->result();
@@ -116,6 +118,7 @@ GROUP BY pl.created_at DESC
 
 	public function detail($id)
 	{	
+				$data['user'] = $this->ion_auth->user()->row();
 				$where = array('id_listrik' => $id);
 
 				$data['pemakaian_listrik'] = $this->Resource->edit($where,'Pemakaian_listrik')->result();
